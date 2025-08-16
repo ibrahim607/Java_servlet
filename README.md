@@ -66,6 +66,13 @@ Body (raw JSON):
   "quantity": 8
 }
 
+### 5.Delete Product
+
+curl -X DELETE http://localhost:8080/products/1
+
+##Postman
+Method: DELETE
+URL: http://localhost:8080/products/1
 
 
   
