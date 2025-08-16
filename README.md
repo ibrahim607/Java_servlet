@@ -1,28 +1,71 @@
 ##Base URL 
 http://localhost:8080/YOUR_APP_NAME/first
 
-#for Curl testing 
-##GET
-curl -X GET "http://localhost:8080/YOUR_APP_NAME/first"
+### 1. Get All Products
 
-##POST
-curl -X POST "http://localhost:8080/YOUR_APP_NAME/first" \
+##CURL
+curl -X GET http://localhost:8080/products
+
+##Postman
+Method: GET
+URL: http://localhost:8080/products
+
+### 2. Get Product by ID
+##CURL
+curl -X GET http://localhost:8080/products/1
+
+##Postman
+Method: GET
+URL: http://localhost:8080/products/1
+
+### 3.Create Product
+
+curl -X POST http://localhost:8080/products \
   -H "Content-Type: application/json" \
   -d '{
-        "name": "Laptop",
-        "price": 999.99,
-        "quantity": 5
-      }'
+    "id": 1,
+    "name": "Laptop",
+    "price": 1000,
+    "quantity": 10
+  }'
 
-##PUT
-curl -X PUT "http://localhost:8080/YOUR_APP_NAME/first?id=1" \
+##Postman
+
+Method: POST
+
+URL: http://localhost:8080/products
+
+Headers: Content-Type: application/json
+
+Body (raw JSON):
+{
+  "id": 1,
+  "name": "Laptop",
+  "price": 1000,
+  "quantity": 10
+}
+
+### 4.Update Product (PUT)
+
+curl -X PUT http://localhost:8080/products/1 \
   -H "Content-Type: application/json" \
   -d '{
-        "name": "Updated Laptop",
-        "price": 899.99,
-        "quantity": 10
-      }'
+    "name": "Gaming Laptop",
+    "price": 1200,
+    "quantity": 8
+  }'
 
-##DELETE
-curl -X DELETE "http://localhost:8080/YOUR_APP_NAME/first?id=1"
+##Postman
+Method: PUT
+URL: http://localhost:8080/products/1
+Headers: Content-Type: application/json
+Body (raw JSON):
+{
+  "name": "Gaming Laptop",
+  "price": 1200,
+  "quantity": 8
+}
 
+
+
+  
